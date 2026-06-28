@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriTech-One 2026 | FAO-COP 31 Side Event</title>
+<link href="https://fonts.googleapis.com/css2?family=Verdana&family=Times+New+Roman&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#0d2b1a;
+  --leaf:#1a5c35;
+  --sage:#2e8b57;
+  --mist:#d6ede0;
+  --gold:#a06c0a;
+  --gold-light:#c8922a;
+  --ink:#0a0f0a;
+  --ink-mid:#1e2d1e;
+  --cream:#f5f5f0;
+  --white:#ffffff;
+  --border:#a8c8b0;
+  --radius:10px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Verdana',Geneva,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--forest);
+  padding:0 1rem;
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:54px;gap:1rem;
+}
+.nav-brand{
+  font-family:'Times New Roman',Times,serif;
+  font-size:1.05rem;font-weight:700;
+  color:#ffffff;text-decoration:none;white-space:nowrap;
+}
+.nav-links{display:flex;gap:1rem;list-style:none;flex-wrap:nowrap}
+.nav-links a{
+  font-size:0.78rem;font-weight:700;
+  color:rgba(255,255,255,0.88);text-decoration:none;
+  transition:color 0.15s;white-space:nowrap;
+}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-reg{
+  background:var(--gold);color:#ffffff!important;
+  padding:7px 16px;border-radius:6px;
+  font-size:0.78rem!important;font-weight:700!important;
+  transition:background 0.15s!important;white-space:nowrap;
+}
+.nav-reg:hover{background:var(--gold-light)!important}
+@media(max-width:700px){
+  .nav-links li:not(:last-child){display:none}
+}
+
+/* HERO */
+.hero{
+  background:var(--forest);
+  color:#ffffff;
+  padding:3.5rem 1.25rem 3rem;
+}
+.hero-inner{max-width:1080px;margin:0 auto}
+.hero-eyebrow{
+  display:inline-block;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.25);
+  border-radius:4px;padding:5px 12px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  color:#f0d090;margin-bottom:1.25rem;
+}
+.hero h1{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(1.9rem,5vw,3.2rem);
+  font-weight:700;line-height:1.15;
+  margin-bottom:0.85rem;color:#ffffff;
+}
+.hero h1 .accent{color:#f0d090}
+.hero-sub{
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.82);
+  max-width:620px;margin-bottom:1.75rem;
+  line-height:1.75;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:2rem;
+}
+.hero-pill{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.22);
+  border-radius:6px;padding:8px 14px;
+  font-size:0.8rem;color:rgba(255,255,255,0.9);
+}
+.hero-pill strong{font-weight:700;color:#f0d090}
+.hero-actions{display:flex;flex-wrap:wrap;gap:0.85rem;align-items:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--gold);color:#ffffff;
+  border:none;border-radius:6px;
+  padding:12px 26px;font-size:0.9rem;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  transition:background 0.15s;font-family:'Verdana',sans-serif;
+}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:7px;
+  background:transparent;color:rgba(255,255,255,0.85);
+  border:1px solid rgba(255,255,255,0.3);border-radius:6px;
+  padding:12px 22px;font-size:0.88rem;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  transition:all 0.15s;font-family:'Verdana',sans-serif;
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);color:#ffffff}
+
+/* STATS BAR — all 5 in one horizontal line */
+.stats-bar{
+  background:#ffffff;
+  border-top:3px solid var(--sage);
+  border-bottom:2px solid var(--border);
+  overflow-x:auto;
+}
+.stats-inner{
+  max-width:1080px;margin:0 auto;
+  display:flex;flex-direction:row;
+  min-width:480px;
+}
+.stat-item{
+  flex:1;padding:1.1rem 0.75rem;
+  text-align:center;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:'Times New Roman',Times,serif;
+  font-size:2rem;font-weight:700;
+  color:var(--forest);line-height:1;
+  display:block;margin-bottom:4px;
+}
+.stat-label{
+  font-size:0.68rem;font-weight:700;
+  color:var(--ink-mid);text-transform:uppercase;letter-spacing:0.05em;justify;
+  line-height:1.4;
+}
+
+/* GENERIC SECTIONS */
+.section{padding:2.75rem 1.25rem}
+.section-alt{background:#ffffff}
+.section-forest{background:var(--forest);color:#ffffff}
+.section-mist{background:var(--mist)}
+.inner{max-width:1080px;margin:0 auto}
+.section-label{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;justify;
+  color:var(--sage);margin-bottom:0.4rem;
+}
+.section-label.light{color:#90d4a8}
+.section-title{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(1.35rem,3.5vw,2rem);font-weight:700;
+  line-height:1.2;margin-bottom:0.75rem;color:var(--ink);
+}
+.section-title.light{color:#ffffff}
+.section-body{
+  font-size:0.875rem;color:var(--ink-mid);
+  max-width:660px;line-height:1.75;margin-bottom:1.5rem;
+}
+.section-body.light{color:rgba(255,255,255,0.82)}
+
+/* WHY PARTICIPATE — 3+3 grid, compact */
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0.75rem;margin-top:1.25rem;
+}
+@media(max-width:640px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.why-grid{grid-template-columns:1fr}}
+.why-card{
+  background:#ffffff;border:1.5px solid var(--border);
+  border-radius:var(--radius);padding:1rem 0.9rem;
+  border-top:3px solid var(--sage);
+}
+.why-card .icon{font-size:1.25rem;margin-bottom:0.5rem;display:block}
+.why-card h3{font-size:0.8rem;font-weight:700;margin-bottom:0.3rem;color:var(--forest);font-family:'Verdana',sans-serif}
+.why-card p{font-size:0.75rem;color:var(--ink-mid);line-height:1.55}
+
+/* VIDEO */
+.video-wrap{
+  border-radius:var(--radius);overflow:hidden;
+  border:2px solid var(--border);background:var(--ink);
+  aspect-ratio:16/9;margin-top:1.5rem;
+}
+.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* PROGRAM */
+.program-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tab-btn{
+  padding:7px 16px;border-radius:5px;
+  border:1.5px solid var(--border);background:#ffffff;
+  font-size:0.78rem;font-weight:700;color:var(--ink-mid);
+  cursor:pointer;transition:all 0.15s;font-family:'Verdana',sans-serif;
+}
+.tab-btn.active{background:var(--forest);color:#ffffff;border-color:var(--forest)}
+.tab-btn:hover:not(.active){background:var(--mist);border-color:var(--sage)}
+.track-panel{display:none}
+.track-panel.active{display:block}
+/* Mobile: 1 col; tablet: 2; desktop: 3 */
+.track-grid{
+  display:grid;grid-template-columns:1fr;gap:0.6rem;
+}
+@media(min-width:500px){.track-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:800px){.track-grid{grid-template-columns:repeat(3,1fr)}}
+.topic-card{
+  background:#ffffff;border:1.5px solid var(--border);
+  border-radius:8px;padding:0.9rem 1rem;
+  border-left:4px solid var(--sage);
+}
+.topic-card .track-tag{
+  font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--leaf);margin-bottom:0.35rem;font-family:'Verdana',sans-serif;
+}
+.topic-card p{font-size:0.8rem;color:var(--ink);line-height:1.55;font-weight:700}
+
+/* SUBMISSION — no repeated indexing text */
+.sub-grid{
+  display:grid;grid-template-columns:1fr;gap:0.75rem;margin-top:1.25rem;
+}
+@media(min-width:540px){.sub-grid{grid-template-columns:repeat(2,1fr)}}
+.sub-card{
+  background:rgba(255,255,255,0.1);border:1.5px solid rgba(255,255,255,0.22);
+  border-radius:var(--radius);padding:1.1rem 1.1rem;
+}
+.sub-card h3{font-size:0.85rem;font-weight:700;margin-bottom:0.3rem;color:#ffffff;font-family:'Times New Roman',Times,serif}
+.sub-card p{font-size:0.78rem;color:rgba(255,255,255,0.82);line-height:1.6}
+.sub-badge{
+  display:inline-block;font-size:0.65rem;font-weight:700;
+  padding:2px 9px;border-radius:3px;
+  background:rgba(200,146,42,0.3);color:#f0d090;
+  margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.04em;
+}
+
+/* DEADLINES */
+.timeline{position:relative;margin-top:1.5rem;display:flex;flex-direction:column;gap:0}
+.timeline::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:2px;background:var(--border)}
+.tl-item{display:flex;gap:1.25rem;padding:0 0 1.5rem 0;position:relative}
+.tl-dot{
+  width:40px;height:40px;min-width:40px;border-radius:50%;
+  background:#ffffff;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1;font-size:0.75rem;font-weight:700;color:var(--leaf);
+}
+.tl-item.hi .tl-dot{background:var(--forest);border-color:var(--forest);color:#ffffff}
+.tl-content{flex:1;padding-top:6px}
+.tl-date{font-size:0.72rem;font-weight:700;color:var(--sage);margin-bottom:1px}
+.tl-title{font-size:0.88rem;font-weight:700;color:var(--forest)}
+.tl-desc{font-size:0.78rem;color:var(--ink-mid);margin-top:2px;line-height:1.55}
+
+/* COMMITTEE — compact, high contrast */
+.committee-section{margin-bottom:1.5rem}
+.committee-section h3{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--forest);margin-bottom:0.6rem;
+  padding-bottom:0.35rem;border-bottom:2px solid var(--border);
+}
+.member-grid{
+  display:grid;grid-template-columns:1fr;gap:0.4rem;
+}
+@media(min-width:440px){.member-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:800px){.member-grid{grid-template-columns:repeat(3,1fr)}}
+.member-row{
+  display:flex;gap:9px;align-items:center;
+  background:#ffffff;border-radius:6px;padding:8px 10px;
+  border:1px solid var(--border);
+}
+.member-av{
+  width:34px;height:34px;min-width:34px;border-radius:50%;
+  background:var(--forest);color:#ffffff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.68rem;font-weight:700;
+}
+.member-name{font-size:0.78rem;font-weight:700;color:var(--ink);line-height:1.25}
+.member-inst{font-size:0.68rem;color:var(--ink-mid);line-height:1.35;margin-top:1px}
+
+/* INDEXING */
+.index-grid{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem}
+.index-pill{
+  background:#ffffff;border:1.5px solid var(--border);
+  border-radius:5px;padding:7px 13px;
+  font-size:0.76rem;font-weight:700;color:var(--forest);
+  display:flex;align-items:center;gap:5px;
+}
+.index-pill::before{content:'✓';color:var(--sage)}
+
+/* VENUE */
+.venue-grid{
+  display:grid;grid-template-columns:1fr;gap:0.75rem;margin-top:1.25rem;
+}
+@media(min-width:640px){.venue-grid{grid-template-columns:1fr 1fr}}
+.venue-card{
+  background:#ffffff;border:1.5px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;
+  border-top:3px solid var(--sage);
+}
+.venue-tag{
+  display:inline-block;font-size:0.65rem;font-weight:700;
+  padding:2px 9px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;
+}
+.venue-tag.ip{background:var(--mist);color:var(--forest)}
+.venue-tag.rm{background:#e0eaf5;color:#1a3a6b}
+.venue-title{font-size:0.88rem;font-weight:700;color:var(--forest);margin-bottom:0.4rem;font-family:'Times New Roman',Times,serif}
+.venue-detail{font-size:0.8rem;color:var(--ink-mid);line-height:1.65}
+
+/* REGISTER CTA */
+.cta-card{
+  background:var(--forest);color:#ffffff;
+  border-radius:14px;padding:2.25rem 1.5rem;text-align:center;
+}
+.cta-card h2{
+  font-family:'Times New Roman',Times,serif;
+  font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;
+  margin-bottom:0.75rem;color:#ffffff;
+}
+.cta-card p{
+  color:rgba(255,255,255,0.82);font-size:0.875rem;
+  max-width:480px;margin:0 auto 1.5rem;line-height:1.7;
+}
+.cta-chips{display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;margin-bottom:1.75rem}
+.cta-chip{
+  background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);
+  border-radius:4px;padding:5px 13px;font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.9);
+}
+.register-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--gold);color:#ffffff;
+  border:none;border-radius:7px;
+  padding:14px 34px;font-size:0.95rem;font-weight:700;
+  cursor:pointer;text-decoration:none;
+  transition:background 0.15s;font-family:'Verdana',sans-serif;
+}
+.register-btn:hover{background:var(--gold-light)}
+
+/* FOOTER — minimal */
+footer{
+  background:var(--ink);color:rgba(255,255,255,0.8);
+  padding:1rem 1.5rem;text-align:center;
+}
+footer p{font-size:0.8rem;font-weight:700}
+footer a{color:rgba(255,255,255,0.75);text-decoration:none}
+footer a:hover{color:#ffffff}
+
+/* SITEMAP */
+.sitemap{background:#f0f0ea;border-top:2px solid var(--border)}
+.sitemap-inner{max-width:1080px;margin:0 auto;padding:2rem 1.25rem}
+.sitemap h2{
+  font-family:'Times New Roman',Times,serif;
+  font-size:1.1rem;font-weight:700;color:var(--forest);margin-bottom:1.25rem;
+  border-bottom:2px solid var(--border);padding-bottom:0.5rem;
+}
+.sitemap-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;
+}
+@media(min-width:600px){.sitemap-grid{grid-template-columns:repeat(4,1fr)}}
+.sitemap-col h3{
+  font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;
+  color:var(--forest);margin-bottom:0.6rem;
+}
+.sitemap-col a{
+  display:block;font-size:0.78rem;color:var(--ink-mid);text-decoration:none;
+  margin-bottom:0.3rem;padding:2px 0;
+}
+.sitemap-col a:hover{color:var(--leaf);text-decoration:underline}
+.sitemap-col a::before{content:'→ ';font-size:0.7rem;color:var(--sage)}
+</style>
+</head>
+<body>
+
+<!-- SITEMAP (hidden, in <head> area as HTML for crawlers; hidden version at <bottom>) -->
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">AgriTech-One 2026</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#submit">Submit</a></li>
+      <li><a href="#committee">Committee</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener" class="nav-reg">Register</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">FAO-COP 31 Side Event</div>
+    <h1>AgriTech-One 2026<br><span class="accent">Climate Change</span></h1>
+    <p class="hero-sub"> AI-driven biotech in agrifood systems</p>
+    <div class="hero-meta">
+      <div class="hero-pill"><strong>Sept 25–26, 2026</strong></div>
+      <div class="hero-pill"><strong>TU Berlin + 100% Remote</strong></div>
+      <div class="hero-pill"><strong>Diamond Open Access Conference</strong></div
+    </div>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener" class="btn-primary">Register now!</a>
+      <a href="#program" class="btn-ghost">View program ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + VIDEO -->
+  <style>
+  #about{
+    text-align: justify;
+  }
+</style>
+
+<section class="section section-alt" id="about">
+  <div class="inner">
+    <div class="section-label">About AgriTech-One 2026</div>
+    <h4 class="section-title"Climate Change</h4>
+    <p class="section-body">
+This European Scientific Conference offers 5 Continuing Education Units (CEUs) or Continuing Professional Development credits (CDPs) for agronomists. AgriTech-One is a Strategic Partner of EU Climate Pact and also a FAO-COP 31 Side event. The conference will bring together researchers, risk assessors, risk managers and stakeholders to share the latest scientific and practical advances and support evidence-based risk management and policy decisions. AgriTech-One 2026 is Digital Poster& Asynchronous Video based Scientific Conference. AgriTech-One 2026 focus: AI-driven biotech in agrifood systems. </p>
+    <div class="video-wrap">
+      <video controls preload="metadata">
+        <source src="vaj ulliri prodhim.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTICIPATE — 6 cards, 3+3 -->
+<section class="section section-mist">
+  <div class="inner">
+    <div class="section-label">Why participate at</div>
+    <h2 class="section-title">AgriTech-One 2026!</h2>
+    <div class="why-grid">
+      <div class="why-card"><span class="icon">📄</span><h3>5 CEUs/CPDs for Agronomists</p></div>
+      <div class="why-card"><span class="icon">🔍</span><h3>Double-blind peer review.</p></div>
+      <div class="why-card"><span class="icon">🔗</span><h3>Blockchain certificates</p></div>
+      <div class="why-card"><span class="icon">📡</span><h3>Asynchronous access</p></div>
+      <div class="why-card"><span class="icon">📚</span><h3>DOAJ & EI-indexed.</p></div>
+      <div class="why-card"><span class="icon">📚</span><h3>UN Repository .</p></div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="section section-alt" id="program">
+  <div class="inner">
+    <div class="section-label">Conference program</div>
+    <h2 class="section-title">Two tracks, one mission</h2>
+    <div class="program-tabs">
+      <button class="tab-btn active" onclick="switchTab('researchers',this)">Researchers &amp; PhD</button>
+      <button class="tab-btn" onclick="switchTab('policymakers',this)">Policymakers, Deep-Tech &amp; Start-ups</button>
+    </div>
+
+    <div id="researchers" class="track-panel active">
+      <div class="track-grid">
+        <div class="topic-card"><div class="track-tag">Crop &amp; Forestry</div><p>Rice varieties with enhanced adaptation to lowland farming systems</p></div>
+        <div class="topic-card"><div class="track-tag">Crop &amp; Forestry</div><p>Agricultural biotechnology for resilience to climate change</p></div>
+        <div class="topic-card"><div class="track-tag">Crop &amp; Forestry</div><p>Molecular breeding in legumes for resource-poor farmers</p></div>
+        <div class="topic-card"><div class="track-tag">Crop &amp; Forestry</div><p>Genomic approaches for fitness traits in forest tree landscapes</p></div>
+        <div class="topic-card"><div class="track-tag">Resource Efficiency</div><p>"Green super rice" — water and nitrogen use efficiency</p></div>
+        <div class="topic-card"><div class="track-tag">Resource Efficiency</div><p>Molecular breeding for underutilised crops in low-input agriculture</p></div>
+        <div class="topic-card"><div class="track-tag">Resource Efficiency</div><p>Biotechnology in genetic improvement in aquaculture</p></div>
+        <div class="topic-card"><div class="track-tag">Resource Efficiency</div><p>Bridging the biotechnology-livestock productivity gap</p></div>
+        <div class="topic-card"><div class="track-tag">Resource Efficiency</div><p>Utilization of tree genetic resources in forestry</p></div>
+        <div class="topic-card"><div class="track-tag">Policy &amp; Society</div><p>Evidence-based policy: impact assessment for agricultural biotechnologies</p></div>
+        <div class="topic-card"><div class="track-tag">Policy &amp; Society</div><p>Country experience in evidence-based policy-making on biotechnologies</p></div>
+        <div class="topic-card"><div class="track-tag">Policy &amp; Society</div><p>Factors for positive biotechnology impacts on smallholder livelihoods</p></div>
+      </div>
+    </div>
+
+    <div id="policymakers" class="track-panel">
+      <div class="track-grid">
+        <div class="topic-card" style="border-left-color:#1a5080"><div class="track-tag" style="color:#1a5080">Livestock &amp; Fishery</div><p>Fish breeding for future environments under climate change</p></div>
+        <div class="topic-card" style="border-left-color:#1a5080"><div class="track-tag" style="color:#1a5080">Livestock &amp; Fishery</div><p>Diagnostic tools and vaccines for aquatic animals</p></div>
+        <div class="topic-card" style="border-left-color:#1a5080"><div class="track-tag" style="color:#1a5080">Livestock &amp; Fishery</div><p>Biotechnologies for animal breeding and climate adaptation</p></div>
+        <div class="topic-card" style="border-left-color:#1a5080"><div class="track-tag" style="color:#1a5080">Livestock &amp; Fishery</div><p>Landscape genomics for adaptive genetic diversity in goat</p></div>
+        <div class="topic-card" style="border-left-color:#7a4800"><div class="track-tag" style="color:#7a4800">Food Safety</div><p>Feed additives from fermentation technologies for livestock</p></div>
+        <div class="topic-card" style="border-left-color:#7a4800"><div class="track-tag" style="color:#7a4800">Food Safety</div><p>Aflasafe: aflatoxin reduction case study</p></div>
+        <div class="topic-card" style="border-left-color:#7a4800"><div class="track-tag" style="color:#7a4800">Food Safety</div><p>Diagnostic tools to prevent pathogen transmission through dairy</p></div>
+        <div class="topic-card" style="border-left-color:#5a1a7a"><div class="track-tag" style="color:#5a1a7a">Policy &amp; IPR</div><p>Role of IPRs in enabling or impeding agricultural biotechnologies in developing countries</p></div>
+        <div class="topic-card" style="border-left-color:#5a1a7a"><div class="track-tag" style="color:#5a1a7a">Policy &amp; IPR</div><p>Regulation and IPRs: perspectives from private sector and civil society</p></div>
+        <div class="topic-card" style="border-left-color:#5a1a7a"><div class="track-tag" style="color:#5a1a7a">Policy &amp; IPR</div><p>Ensuring biotechnology policies benefit smallholders</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMISSION -->
+<section class="section section-forest" id="submit">
+  <div class="inner">
+    <div class="section-label light">Submission categories</div>
+    <h2 class="section-title light">Share your work with the world</h2>
+    <p class="section-body light"> Abstract deadline: <strong style="color:#f0d090">July 25, 2026</strong>.</p>
+    <div class="sub-grid">
+      <div class="sub-card">
+        <div class="sub-badge">Digital Poster</div>
+        <h3>A0 Landscape Poster</h3
+        <p>No more than 350 words: in English, French or Spanish. Consider including eye-catching visuals, clear text, and relevant details to engage your audience effectively.</p>
+      </div>
+      <div class="sub-card">
+        <div class="sub-badge">Video Presentation</div>
+        <h3>10–15 min MP4</h3>
+        <p>In English, French, or Spanish. Subtitles added by the volunteer team.</p>
+      </div>
+      <div class="sub-card">
+        <div class="sub-badge">Tech-Brief</div>
+        <h3>Rapid Innovation Report</h3>
+        <p>Short sessions focused on Tech-to-Market and AI-Driven Sustainability from the startup ecosystem.</p>
+      </div>
+      <div class="sub-card">
+        <div class="sub-badge">5-Minute Pitch</div>
+        <h3>Startup Demo</h3>
+        <p>Concise, high-impact pitches showcasing real-world biotechnology innovations and commercial applications.</p>
+      </div>
+    </div>
+    <div style="margin-top:2rem;text-align:center">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener" class="register-btn">Submit your abstract →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEADLINES -->
+<section class="section section-alt">
+  <div class="inner">
+    <div class="section-label">Key dates</div>
+    <h2 class="section-title">Conference timeline</h2>
+    <div class="timeline" style="max-width:560px">
+      <div class="tl-item hi">
+        <div class="tl-dot">1</div>
+        <div class="tl-content">
+          <div class="tl-date">July 25, 2026</div>
+          <div class="tl-title">Abstract submission deadline</div>
+          <div class="tl-desc">Submit poster, video, tech-brief or startup pitch.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div class="tl-content">
+          <div class="tl-date">August 15, 2026</div>
+          <div class="tl-title">Notification of acceptance</div>
+          <div class="tl-desc">Double-anonymized peer review.</div>
+        </div>
+      </div>
+      <div class="tl-item hi">
+        <div class="tl-dot">★</div>
+        <div class="tl-content">
+          <div class="tl-date">September 25–26, 2026</div>
+          <div class="tl-title">Conference — TU Berlin &amp; Remote</div>
+          <div class="tl-desc">Live sessions in Berlin. Asynchronous video gallery open worldwide.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div class="tl-content">
+          <div class="tl-date">October 20, 2026</div>
+          <div class="tl-title">Post-conference publication</div>
+          <div class="tl-desc">Proceedings with ISBN/ISSN published at FAO Repository, OpenAIRE, Figshare &amp; Zenodo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMITTEE — compact -->
+<section class="section section-mist" id="committee">
+  <div class="inner">
+    <div class="section-label">Scientific leadership</div>
+    <h2 class="section-title">Advisory &amp; Program Committee</h2>
+
+    <div class="committee-section">
+      <h3>Technical Program Co-chairs</h3>
+      <div class="member-grid">
+        <div class="member-row"><div class="member-av">JR</div><div><div class="member-name">Juan Jose Amate Ruiz</div><div class="member-inst">Univ. de Almería</div></div></div>
+        <div class="member-row"><div class="member-av">JT</div><div><div class="member-name">Juan E. Trinidad Segovia</div><div class="member-inst">Catholic Univ. of Colombia</div></div></div>
+        <div class="member-row"><div class="member-av">SZ</div><div><div class="member-name">Shengke Zeng</div><div class="member-inst">Xihua University, China</div></div></div>
+      </div>
+    </div>
+
+    <div class="committee-section">
+      <h3>Vice-chair &amp; Publicity Co-chairs</h3>
+      <div class="member-grid">
+        <div class="member-row"><div class="member-av">ES</div><div><div class="member-name">Elias Silva Olivier</div><div class="member-inst">Univ. Industrielle de Santander</div></div></div>
+        <div class="member-row"><div class="member-av">EW</div><div><div class="member-name">Eric Yew Kee WONG</div><div class="member-inst">HK Chu Hai College, China</div></div></div>
+        <div class="member-row"><div class="member-av">DO</div><div><div class="member-name">Daniela Ottavianni</div><div class="member-inst">Univ. Oberta de Catalunya</div></div></div>
+      </div>
+    </div>
+
+    <div class="committee-section">
+      <h3>Publication, Financial &amp; e-Poster Chairs</h3>
+      <div class="member-grid">
+        <div class="member-row"><div class="member-av">CC</div><div><div class="member-name">Cristina Cardenete Suriol</div><div class="member-inst">Consell Comarcal Alt Penedès</div></div></div>
+        <div class="member-row"><div class="member-av">NM</div><div><div class="member-name">Natasha Mykhaylova</div><div class="member-inst">WeavAir &amp; Climat8</div></div></div>
+        <div class="member-row"><div class="member-av">PK</div><div><div class="member-name">Panagiotis Kaninlis [PhD]</div><div class="member-inst">UNED, Spain</div></div></div>
+        <div class="member-row"><div class="member-av">JH</div><div><div class="member-name">Jie Hu</div><div class="member-inst">Southwest Jiaotong Univ., China</div></div></div>
+        <div class="member-row"><div class="member-av">WT</div><div><div class="member-name">Wajeha Thabit</div><div class="member-inst">Sultan Qaboos Univ., Oman</div></div></div>
+      </div>
+    </div>
+
+    <div class="committee-section">
+      <h3>International Advisory Committee</h3>
+      <div class="member-grid">
+        <div class="member-row"><div class="member-av">LB</div><div><div class="member-name">Liam J. Bannon</div><div class="member-inst">Univ. of Limerick, Ireland</div></div></div>
+        <div class="member-row"><div class="member-av">LS</div><div><div class="member-name">Liane Schalatek</div><div class="member-inst">Heinrich Böll Stiftung</div></div></div>
+        <div class="member-row"><div class="member-av">PC</div><div><div class="member-name">Pablo Casaleiro</div><div class="member-inst">COIMBRA GROUP, Portugal</div></div></div>
+        <div class="member-row"><div class="member-av">AA</div><div><div class="member-name">Ahmed Abdel-Latif</div><div class="member-inst">ICTSD</div></div></div>
+        <div class="member-row"><div class="member-av">KR</div><div><div class="member-name">Krishna Ravi Srinivas</div><div class="member-inst">NALSAR Univ. of Law</div></div></div>
+        <div class="member-row"><div class="member-av">WZ</div><div><div class="member-name">Wei Zhuang</div><div class="member-inst">Univ. of Geneva</div></div></div>
+        <div class="member-row"><div class="member-av">KA</div><div><div class="member-name">Khor Adbel</div><div class="member-inst">The South Center</div></div></div>
+        <div class="member-row"><div class="member-av">NS</div><div><div class="member-name">Navraj Singh Ghaleigh</div><div class="member-inst">UNFCCC</div></div></div>
+        <div class="member-row"><div class="member-av">MB</div><div><div class="member-name">Michael Blakeney</div><div class="member-inst">Univ. of Western Australia</div></div></div>
+        <div class="member-row"><div class="member-av">EL</div><div><div class="member-name">En-Bing Lin</div><div class="member-inst">Central South Univ., China</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="section section-alt" id="venue">
+  <div class="inner">
+    <div class="section-label">Venue</div>
+    <h2 class="section-title">A hybrid stage for global science</h2>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="venue-tag ip">In-person</div>
+        <div class="venue-title">Zentralbibliothek — TU Berlin</div>
+        <div class="venue-detail">Fasanenstraße 88, 10623 Berlin, Germany</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-tag rm">100% Remote</div>
+        <div class="venue-title">Asynchronous Video &amp; Digital Posters</div>
+        <div class="venue-detail"> Interactive Q&amp;A, voting, peer discussion, and best-poster awards — fully accessible from conflict-affected regions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDEXING -->
+<section class="section section-mist">
+  <div class="inner">
+    <div class="section-label">Indexing &amp; repositories</div>
+    <h2 class="section-title">Your work, discoverable everywhere</h2>
+    <div class="index-grid">
+      <div class="index-pill">FAO Knowledge Repository</div>
+      <div class="index-pill">European OpenAIRE</div>
+      <div class="index-pill">Zenodo</div>
+      <div class="index-pill">Figshare</div>
+      <div class="index-pill">DOAJ-Indexed</div>
+      <div class="index-pill">EI-Indexed</div>
+      <div class="index-pill">ISBN + ISSN Proceedings</div>
+      <div class="index-pill">EU-Metadata Standards</div>
+      <div class="index-pill">DOI per accepted poster</div>
+      <div class="index-pill">Blockchain certificates</div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER CTA -->
+<section class="section" id="register">
+  <div class="inner">
+    <div class="cta-card">
+      <h2>Ready to join AgriTech-One 2026?</h2>
+      <p>Share your Research with the European Scientific Community!</p>
+      
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener" class="register-btn">Register now!↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- SITEMAP -->
+  <nav class="sitemap" aria-label="Site map" style="display:none;">
+  <div class="sitemap-inner">
+    <h2>Site Map</h2>
+    <div class="sitemap-grid">
+      <div class="sitemap-col">
+        <h3>Conference</h3>
+        <a href="#about">About &amp; Introduction</a>
+        <a href="#about">Hook Video</a>
+        <a href="#venue">Venue — TU Berlin</a>
+        <a href="#venue">Remote Access</a>
+      </div>
+      <div class="sitemap-col">
+        <h3>Program</h3>
+        <a href="#program">Researchers &amp; PhD Track</a>
+        <a href="#program">Policymakers &amp; Start-up Track</a>
+        <a href="#submit">Submission Categories</a>
+        <a href="#submit">Key Deadlines</a>
+      </div>
+      <div class="sitemap-col">
+        <h3>People</h3>
+        <a href="#committee">Technical Program Co-chairs</a>
+        <a href="#committee">Publicity Co-chairs</a>
+        <a href="#committee">Publication &amp; Financial Chairs</a>
+        <a href="#committee">International Advisory Committee</a>
+      </div>
+      <div class="sitemap-col">
+        <h3>Participation</h3>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener">Register (Google Form)</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSenfYQe4v_QVKLjDxkZVTt4U0MvZoiEsc0hHhJJ7zU9pa0I4A/viewform?usp=header" target="_blank" rel="noopener">Submit Abstract</a>
+        <a href="https://www.agritech-one.scientiae-naturalis.org/" target="_blank" rel="noopener">Official Website</a>
+        <a href="#register">Scholarships Info</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- FOOTER — minimal -->
+<footer>
+  <p>AgriTech-One 2026 &nbsp;|&nbsp; FAO-COP 31 Side Event &nbsp;|&nbsp; EU Climate Pact Strategic Partner &nbsp;|&nbsp; <a href="https://www.agritech-one.scientiae-naturalis.org/" target="_blank" rel="noopener">Scientiae-Naturalis.org</a></p>
+</footer>
+
+<script>
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.track-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
